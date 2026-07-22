@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ink: #0b1324;
+    --ink-soft: #152238;
+    --paper: #f3f6fa;
+    --paper-2: #e8eef5;
+    --line: #d5dee9;
+    --mute-text: #5b6b7c;
+    --teal: #0f766e;
+    --teal-bright: #14b8a6;
+    --coral: #e11d48;
+    --gold: #d97706;
+
+    --background: 210 33% 97%;
+    --foreground: 218 48% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 218 48% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 218 48% 9%;
+    --primary: 175 77% 26%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 28% 94%;
+    --secondary-foreground: 218 48% 9%;
+    --muted: 210 20% 92%;
+    --muted-foreground: 215 14% 42%;
+    --accent: 175 50% 94%;
+    --accent-foreground: 175 77% 22%;
+    --destructive: 347 77% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 24% 88%;
+    --input: 214 24% 88%;
+    --ring: 175 77% 26%;
+    --radius: 0.9rem;
+  }
+
+  .dark {
+    --background: 218 48% 7%;
+    --foreground: 210 33% 96%;
+    --card: 218 40% 10%;
+    --card-foreground: 210 33% 96%;
+    --popover: 218 40% 10%;
+    --popover-foreground: 210 33% 96%;
+    --primary: 173 66% 42%;
+    --primary-foreground: 218 48% 7%;
+    --secondary: 218 30% 16%;
+    --secondary-foreground: 210 33% 96%;
+    --muted: 218 30% 16%;
+    --muted-foreground: 215 16% 65%;
+    --accent: 175 30% 16%;
+    --accent-foreground: 173 66% 55%;
+    --destructive: 347 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 218 28% 18%;
+    --input: 218 28% 18%;
+    --ring: 173 66% 42%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body), system-ui, sans-serif;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display), Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .app-shell-bg {
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(20, 184, 166, 0.14), transparent 55%),
+      radial-gradient(900px 500px at 100% 0%, rgba(225, 29, 72, 0.08), transparent 50%),
+      linear-gradient(180deg, #f3f6fa 0%, #eef3f8 100%);
+  }
+
+  .dark .app-shell-bg {
+    background:
+      radial-gradient(1000px 500px at 0% 0%, rgba(20, 184, 166, 0.12), transparent 50%),
+      radial-gradient(800px 400px at 100% 0%, rgba(225, 29, 72, 0.08), transparent 45%),
+      linear-gradient(180deg, #0b1324 0%, #101a2c 100%);
+  }
+
+  .glass-panel {
+    @apply bg-white/80 dark:bg-white/5 backdrop-blur-xl border border-white/60 dark:border-white/10;
+  }
+
+  .nav-ink {
+    background:
+      linear-gradient(165deg, #0b1324 0%, #122038 48%, #0f2f2c 100%);
+  }
+
+  .stat-shine {
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.55));
+  }
+
+  .dark .stat-shine {
+    background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  }
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes soft-pulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.85; }
+}
+
+.animate-rise {
+  animation: rise-in 0.55s ease-out both;
+}
+
+.animate-rise-delay-1 { animation-delay: 0.08s; }
+.animate-rise-delay-2 { animation-delay: 0.16s; }
+.animate-rise-delay-3 { animation-delay: 0.24s; }
+
+.ambient-orb {
+  animation: soft-pulse 5s ease-in-out infinite;
+}
