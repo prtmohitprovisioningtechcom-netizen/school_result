@@ -1,6 +1,6 @@
 "use client";
 
-import { Save, Image as ImageIcon, Upload } from "lucide-react";
+import { Save, Image as ImageIcon, Upload, Loader2 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
 export default function SettingsPage() {
