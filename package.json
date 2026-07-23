@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "nodemon --watch server -e ts --exec ts-node server/index.ts",
-    "build": "next build",
-    "start": "NODE_ENV=production ts-node server/index.ts",
+    "build": "next build && tsc -p tsconfig.server.json",
+    "start": "NODE_ENV=production node dist/index.js",
     "lint": "next lint",
     "db:setup": "ts-node setupDB.ts",
     "db:migrate": "ts-node migrateDb.ts"
