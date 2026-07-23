@@ -10,7 +10,11 @@ export async function GET() {
        FROM school_settings LIMIT 1`
     );
     return NextResponse.json(settings[0] || {});
-  } catch (error) {
-    return NextResponse.json({ message: 'Error fetching school branding' }, { status: 500 });
+  } catch (error: any) {
+    console.error('Settings error details:', error);
+    return NextResponse.json({ 
+      message: 'Error fetching school branding',
+      error: error.message || error.toString()
+    }, { status: 500 });
   }
 }
